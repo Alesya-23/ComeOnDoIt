@@ -5,4 +5,5 @@
     <color name="colorAccent">#00db6a</color>
     <color name="disabletextcolor">#dedede</color>
     <color name="white_color">#ffffff</color>
+    <color name="time_color">#8ab82e</color>
 </resources>

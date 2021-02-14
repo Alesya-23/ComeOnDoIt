@@ -15,14 +15,12 @@ import com.shrikanthravi.collapsiblecalendarview.widget.CollapsibleCalendar.Cale
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
-
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val collapsibleCalendar = findViewById<CollapsibleCalendar>(R.id.calendar)
         var year: String? = collapsibleCalendar.year.toString()
-        var day = collapsibleCalendar.selectedDay
         var date: String = collapsibleCalendar.selectedDay.toString()
         collapsibleCalendar.setCalendarListener(object : CalendarListener {
             //select day
@@ -41,16 +39,17 @@ class MainActivity : AppCompatActivity() {
                 )
                 list.addItemDecoration(decoration)
                 adapter.notifyDataSetChanged()
-
                 adapter.setOnCLickListener(object : ItemListCaseAdapter.onItemClickListener {
-                    override fun onClick(itemListCase: ItemListCase?) {
+                    override fun onСlick(itemListCase: ItemListCase) {
                         if (itemListCase != null) {
                             val intent = Intent(this@MainActivity, ItemListCaseFull::class.java)
-                            intent.putExtra("date", "2021-21")
+                            intent.putExtra("title", itemListCase.title)
+                            intent.putExtra("time", itemListCase.timeStart + "-" + itemListCase.timeEnd)
+                            intent.putExtra("date", itemListCase.date)
+                            intent.putExtra("description", itemListCase.description)
                             startActivity(intent)
                         }
                     }
-
                 })
             }
 
@@ -76,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         val buttonAddItem: FloatingActionButton = findViewById<FloatingActionButton>(R.id.add_case);
         buttonAddItem.setOnClickListener() {
             val intent = Intent(this, AddItemListCase::class.java)
-            startActivity(intent);
+            startActivity(intent)
         }
     }
 }

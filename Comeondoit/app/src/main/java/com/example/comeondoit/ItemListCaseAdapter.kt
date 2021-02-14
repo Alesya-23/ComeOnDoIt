@@ -1,23 +1,18 @@
 package com.example.comeondoit
 
-import android.content.Context
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
-import com.shrikanthravi.collapsiblecalendarview.data.Day
 
-
-class ItemListCaseAdapter(year: String, date: String) : RecyclerView.Adapter<ItemListCaseAdapter.ItemViewHolder>() {
+class ItemListCaseAdapter(year: String, date: String) :
+        RecyclerView.Adapter<ItemListCaseAdapter.ItemViewHolder>() {
     private val itemsListCase: ArrayList<ItemListCase> = ArrayList()
     private var listener: onItemClickListener? = null
     private var currentItem: Int = 0;
-    private lateinit var mAuth: FirebaseAuth
     private var myRef: DatabaseReference = FirebaseDatabase.getInstance().reference
     val rootRef = FirebaseDatabase.getInstance().reference.child(year).child(date)
             .addValueEventListener(object :
@@ -46,7 +41,6 @@ class ItemListCaseAdapter(year: String, date: String) : RecyclerView.Adapter<Ite
                     }
                     notifyDataSetChanged()
                 }
-
             })
 
     override fun onCreateViewHolder(
@@ -58,19 +52,30 @@ class ItemListCaseAdapter(year: String, date: String) : RecyclerView.Adapter<Ite
         return ItemViewHolder(itemView)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(getItem(position))
         val currentItem = itemsListCase[position]
         holder.title.text = currentItem.title
-        holder.time.text = currentItem.timeStart.toString()
+        holder.time.text = currentItem.timeStart.toString() + "-" + currentItem.timeEnd.toString()
     }
 
-    class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.title_case_short)
         val time: TextView = itemView.findViewById(R.id.time_case_short)
         fun bind(grid: ItemListCase) {
             title.text = "title"
             time.text = "16:00"
+        }
+        init {
+            itemView.setOnClickListener(View.OnClickListener {
+                listener?.let { listener ->
+                    val position: Int = adapterPosition
+                    if (position in 0..itemCount) {
+                        listener.onСlick(itemsListCase[position])
+                    }
+                }
+            })
         }
     }
 
@@ -79,7 +84,7 @@ class ItemListCaseAdapter(year: String, date: String) : RecyclerView.Adapter<Ite
     }
 
     interface onItemClickListener {
-        fun onClick(itemListCase: ItemListCase?)
+        abstract fun onСlick(itemListCase: ItemListCase)
     }
 
     fun setItems(itemsListCase: ArrayList<ItemListCase>) {

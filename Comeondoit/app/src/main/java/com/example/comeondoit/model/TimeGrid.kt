@@ -6,6 +6,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class TimeGrid(
-    val timeStart: String,
-    val timeEnd: String
+        val timeStart: String,
+        val timeEnd: String
 ) : Parcelable

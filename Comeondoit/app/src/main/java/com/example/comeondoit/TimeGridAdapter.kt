@@ -34,9 +34,7 @@ class TimeGridAdapter(Context: Context, private val android: List<TimeGrid>) :
 
     override fun getItemCount(): Int = android.size
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
-
 }

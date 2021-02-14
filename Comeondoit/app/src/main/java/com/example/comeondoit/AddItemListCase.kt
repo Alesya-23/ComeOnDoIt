@@ -14,7 +14,6 @@ import com.google.firebase.database.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class AddItemListCase : AppCompatActivity() {
     private var isEdit: Boolean = false
     private lateinit var mAuth: FirebaseAuth
@@ -127,10 +126,8 @@ class AddItemListCase : AppCompatActivity() {
                                 "timeStart" to textClockStart.text.toString(),
                                 "timeEnd" to textClockEnd.text.toString()
                         )
-
                 FirebaseAuth.getInstance().signOut()
                 //проверка есть ли такой ребёнок в бд
-
                 val rootRef = FirebaseDatabase.getInstance().reference.child(yearNow.toString())
                         .child(textDate.text.toString())
                 rootRef.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -157,7 +154,7 @@ class AddItemListCase : AppCompatActivity() {
                 } else {
                     val toast: Toast = Toast.makeText(
                             applicationContext,
-                            "Задача " + title.text + "не добавлена, на это время есть дело",
+                            "Задача " + title.text + "не добавлена.На это время есть дело",
                             Toast.LENGTH_SHORT
                     )
                     return@setOnClickListener toast.show()
