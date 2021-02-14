@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "146499277054",
+    "project_id": "come-on-do-it",
+    "storage_bucket": "come-on-do-it.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146499277054:android:2cc7ef9d3eff88a18355af",
+        "android_client_info": {
+          "package_name": "com.example.comeondoit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146499277054-j9uog40mpop779o47t614rm94k999k5c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.comeondoit",
+            "certificate_hash": "90ca6153dc52da5dec63684ce9cfadeab13619e7"
+          }
+        },
+        {
+          "client_id": "146499277054-b33itq1q27a3m8aknh882u6isj5ud33n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaP-T4bpQEfyk0yFXi276e1ZhwrZ6SnQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "146499277054-b33itq1q27a3m8aknh882u6isj5ud33n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Come on do it!</string>
+    <string name="title">Title Еда</string>
+    <string name="time">time 16:00</string>
+    <string name="date">date 26.01.2021</string>
+    <string name="description">description - сходить в магазин за хлебом</string>
+    <string name="titleInput">Title</string>
+    <string name="descriptionInput">Description</string>
+    <string name="add_case">Add case</string>
+    <string name="time_start">time start</string>
+    <string name="time_end">time end</string>
+    <string name="date_in">date</string>
+</resources>

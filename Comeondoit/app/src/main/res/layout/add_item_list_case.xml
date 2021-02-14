@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#51A831"
+    tools:context=".AddItemListCase">
+
+    <EditText
+        android:id="@+id/in_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:contentDescription="@string/title"
+        android:hint="@string/titleInput"
+        android:inputType="text"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/in_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="@string/descriptionInput"
+        android:inputType="textMultiLine"
+        app:layout_constraintStart_toStartOf="@id/in_title"
+        app:layout_constraintTop_toBottomOf="@id/in_title" />
+
+    <TextView
+        android:id="@+id/in_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="@string/date_in"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="@id/in_description"
+        app:layout_constraintTop_toBottomOf="@id/in_description"
+        tools:ignore="TextViewEdits" />
+
+    <TextView
+        android:id="@+id/in_time_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="@string/time_start"
+        android:inputType="time"
+        app:layout_constraintStart_toStartOf="@id/in_date"
+        app:layout_constraintTop_toBottomOf="@id/in_date" />
+
+    <TextView
+        android:id="@+id/in_time_end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="@string/time_end"
+        android:inputType="time"
+        app:layout_constraintStart_toStartOf="@id/in_time_start"
+        app:layout_constraintTop_toBottomOf="@id/in_time_start" />
+
+    <Button
+        android:id="@+id/add_new_case_full"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="18dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:text="@string/add_case"
+        android:textColor="@color/white_color"
+        app:layout_constraintStart_toStartOf="@id/in_time_end"
+        app:layout_constraintTop_toBottomOf="@id/in_time_end" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
